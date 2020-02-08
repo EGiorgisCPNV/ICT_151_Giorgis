@@ -51,18 +51,13 @@ function login($post)
 {
     $_GET['action'] = "login";
 
-    //cette condition sert a vérifier si l'utilisateur a deja remplit des données ou non
-    if (isset($post['username']) && isset($post)) {
 
-        //cette condition va checker ce que l'utilisateur va rentrer dans la page login est rediriger sur la page home si ce qu'il a rentrer correspond a la la fonction checkLogin dans le model.php sinon sur la page login sa sa ne corespond pas
-        if (checkLogin($post)) {
-            $_SESSION['MotCle'] = $post['username'];
-            require "view/home.php";
-        } else
-            require "view/login.php";
-    } else {
+    //cette condition va checker ce que l'utilisateur va rentrer dans la page login est rediriger sur la page home si ce qu'il a rentrer correspond a la la fonction checkLogin dans le model.php sinon sur la page login sa sa ne corespond pas
+    if (checkLogin($post)) {
+        $_SESSION['MotCle'] = @$post['username'];
+        home();
+    } else
         require "view/login.php";
-    }
 
 
 }

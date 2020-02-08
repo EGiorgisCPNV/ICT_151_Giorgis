@@ -96,6 +96,7 @@
               </div>
               <div id="headerSeparator2"></div>
               <!-- ________ SLIDER_____________-->
+
           <?php endif; ?>
 
       </div>

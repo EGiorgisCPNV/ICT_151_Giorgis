@@ -4,7 +4,7 @@
 function checkLogin($post)
 {
 
-    $requete = "Select userEmailAddress, userPsw from users where userEmailAddress = '" .$post['username']."' and userPsw = '".$post['password']."';";
+    $requete = "Select userEmailAddress, userPsw from users where userEmailAddress = '" .@$post['username']."' and userPsw = '".@$post['password']."';";
 
     require_once "dbConnector.php";
 

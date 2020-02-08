@@ -18,7 +18,7 @@ if(isset ($_GET['action'])){
             break;
 
         case 'login':
-            login($_POST);
+            login(@$_POST);
             break;
 
         default:
