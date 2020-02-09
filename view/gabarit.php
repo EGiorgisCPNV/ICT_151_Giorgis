@@ -71,8 +71,37 @@
             </button>
             <div class="nav-collapse collapse">
               <ul class="nav nav-pills ddmenu">
-                  <li><a href="index.php?action=home">Home</a></li>
-                  <li><a href="index.php?action=login">Login</a></li>
+                  <!-- boutton accuiel-->
+                  <li<?php if (($_GET['action'] == "home") || (!isset($_GET['action'])))  : //les double points sont obligatoire sa remplace un "{" dans les fichier html?>
+                      class="active"
+                  <?php endif ?>>
+                      <a href="index.php?action=home">Home</a></li>
+
+
+                  <!-- boutton Register-->
+                  <li<?php if (($_GET['action'] == "register"))  : ?>
+                      class="active"
+                  <?php endif ?>>
+                      <a href="index.php?action=register">Register</a></li>
+
+
+
+                  <!-- boutton logout-->
+                  <?php if (isset($_SESSION['MotCle'])) : //les double points sont obligatoire sa remplace un "{" dans les fichier html?>
+                      <li><a href="index.php?action=logout">Logout</a></li>
+
+                      <?php echo "<label>Vous êtes connecté en tant que </label>" . $_SESSION['MotCle'] ?>
+                  <?php else : ?>
+
+                      <!-- boutton login-->
+                      <li<?php if (($_GET['action'] == "login"))  : ?>
+                          class="active"
+                      <?php endif ?>>
+                          <a href="index.php?action=login">Login</a></li>
+
+                  <?php endif ?>
+
+
               </ul>
             </div>
           </div>
@@ -80,27 +109,8 @@
       </div>
     </div>
 
-    <div class="row-fluid">
-      <div class="span12">
-          <!-- ________ SLIDER_____________-->
-          <?php if((@$_GET['action']=="home")||(!isset($_GET['action']))) :?>
-              <div id="headerSeparator"></div>
 
-              <div class="camera_full_width">
-                  <div id="camera_wrap">
-                      <div data-src="view/content/slider-images/5.jpg" ><div class="camera_caption fadeFromBottom cap1">Les derniers modèles toujours à disposition.</div></div>
-                      <div data-src="view/content/slider-images/1.jpg" ><div class="camera_caption fadeFromBottom cap2">Découvrez des paysages fabuleux avec des sensations.</div></div>
-                      <div data-src="view/content/slider-images/2.jpg" ></div>
-                  </div>
-                  <br style="clear:both"/><div style="margin-bottom:40px"></div>
-              </div>
-              <div id="headerSeparator2"></div>
-              <!-- ________ SLIDER_____________-->
 
-          <?php endif; ?>
-
-      </div>
-    </div>
 
     <div class="contentArea">
 

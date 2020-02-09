@@ -30,17 +30,6 @@ function home()
  */
 function register()
 {
-    $_POST['action'] = "register";
-
-    $username = @$_POST["Username"];
-    $password = @$_POST["Password"];
-
-    if (isset($username) && isset($password)) {
-        creatUser();
-        require "view/home.php";
-    } else
-
-        require "view/register.php";
 }
 
 /**
@@ -51,13 +40,18 @@ function login($post)
 {
     $_GET['action'] = "login";
 
-
+if(isset ($post['username']) || isset ($post['password'])){
     //cette condition va checker ce que l'utilisateur va rentrer dans la page login est rediriger sur la page home si ce qu'il a rentrer correspond a la la fonction checkLogin dans le model.php sinon sur la page login sa sa ne corespond pas
     if (checkLogin($post)) {
         $_SESSION['MotCle'] = @$post['username'];
         home();
-    } else
+    } else{
+        echo "Soit votre email ou soit votre mot de passe est incorrect";
         require "view/login.php";
+    }
+}else
+    require "view/login.php";
+
 
 
 }

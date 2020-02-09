@@ -12,7 +12,7 @@ $titre="Rent A Snow - Login";
 
 
     <form class="form" method='POST' action="index.php?action=login">
-        <label>Utilisateur</label>
+        <label >Utilisateur</label>
         <input type="text" name="username" placeholder="Enter Username" id="username" required>
         <br>
         <label>Mot de passe</label>

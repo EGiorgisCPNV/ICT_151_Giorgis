@@ -43,9 +43,11 @@ function openDBConnexion()
 
     try {
         $tempDbConnexion = new PDO($dsn, $userName, $userPwd);
+
     }
     catch (PDOException $exception) {
         echo 'Connection failed: ' . $exception->getMessage()."<br>";
+
 
     }
     return $tempDbConnexion;
