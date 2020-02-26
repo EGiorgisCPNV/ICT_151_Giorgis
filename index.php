@@ -18,7 +18,7 @@ if(isset ($_GET['action'])){
             break;
 
         case 'register':
-            register();
+            register(@$_POST);
             break;
 
         case 'login':
@@ -28,9 +28,6 @@ if(isset ($_GET['action'])){
         case 'logout':
             logout();
             break;
-
-        default:
-            home();
     }
 
 }
