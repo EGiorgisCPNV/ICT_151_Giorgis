@@ -88,7 +88,9 @@
       <workItem from="1581698086530" duration="168000" />
       <workItem from="1582451625721" duration="117000" />
       <workItem from="1582733236718" duration="5743000" />
-      <workItem from="1582884325023" duration="4072000" />
+      <workItem from="1582884325023" duration="4267000" />
+      <workItem from="1583140269839" duration="34000" />
+      <workItem from="1583140404211" duration="1138000" />
     </task>
     <servers />
   </component>
@@ -121,30 +123,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php-line-method">
-          <url>file://$PROJECT_DIR$/model/userManagment.php</url>
-          <line>34</line>
-          <properties>
-            <option name="className" value="" />
-            <option name="methodName" value="\checkLogin" />
-          </properties>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/model/userManagment.php</url>
-          <line>44</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/model/userManagment.php</url>
-          <line>47</line>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
