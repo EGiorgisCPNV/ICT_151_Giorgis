@@ -2,8 +2,42 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f6b2ab00-b284-48bf-95b3-e5b3b6546a1d" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/model/snowManagment.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/view/snows.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controler/controler.php" beforeDir="false" afterPath="$PROJECT_DIR$/controler/controler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/userManagment.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/userManagment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/content/images/2048.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/content/images/5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/content/images/500px-33918005.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/content/images/6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/content/images/7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/content/images/8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/content/images/HTML5_1Color_Black.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/content/images/HTML5_3D_Effects_512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/content/images/HTML5_Connectivity_512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/content/images/HTML5_Device_Access_512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/content/images/HTML5_Multimedia_512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/content/images/HTML5_Offline_Storage_512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/content/images/HTML5_Performance_512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/content/images/HTML5_Semantics_512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/content/images/HTML5_Styling_512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/content/images/LogoRentASnow.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/content/images/add.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/content/images/building.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/content/images/css3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/content/images/delete.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/content/images/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/content/images/home-image.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/content/images/html5-black.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/content/images/icone-panier.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/content/images/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/content/images/modif.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/content/images/modif.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/content/images/services-image.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/content/images/windmill.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/gabarit.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/gabarit.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -90,7 +124,8 @@
       <workItem from="1582733236718" duration="5743000" />
       <workItem from="1582884325023" duration="4267000" />
       <workItem from="1583140269839" duration="34000" />
-      <workItem from="1583140404211" duration="1138000" />
+      <workItem from="1583140404211" duration="1382000" />
+      <workItem from="1583325869493" duration="7898000" />
     </task>
     <servers />
   </component>

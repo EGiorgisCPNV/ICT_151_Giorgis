@@ -25,9 +25,17 @@ if(isset ($_GET['action'])){
             login(@$_POST);
             break;
 
+        case 'snows':
+            snows();
+            break;
+
         case 'logout':
             logout();
             break;
+
+        default :
+            home();
+
     }
 
 }

@@ -85,6 +85,12 @@
                       <a href="index.php?action=register">Register</a></li>
 
 
+                  <!-- boutton Snows-->
+                  <li<?php if (($_GET['action'] == "snows"))  : ?>
+                      class="active"
+                  <?php endif ?>>
+                      <a href="index.php?action=snows">Snows</a></li>
+
 
                   <!-- boutton logout-->
                   <?php if (isset($_SESSION['MotCle'])) : //les double points sont obligatoire sa remplace un "{" dans les fichier html?>

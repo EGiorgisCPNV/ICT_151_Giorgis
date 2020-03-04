@@ -12,6 +12,7 @@
 session_start();//ouvre la session
 
 require "model/userManagment.php";
+require "model/snowManagment.php";
 
 
 /**
@@ -81,10 +82,12 @@ function login($postLoin)
  * Function to redirect the user to the produit page
  *  (epending the action received by the index)
  */
-function produit()
+function snows()
 {
-    $_GET['action'] = "produit";
-    require "view/produit.php";
+    $_GET['action'] = "snows";
+
+    $tableauSnows=showSnows();
+    require "view/snows.php";
 }
 
 
