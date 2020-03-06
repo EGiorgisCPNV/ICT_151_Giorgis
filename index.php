@@ -29,6 +29,10 @@ if(isset ($_GET['action'])){
             snows();
             break;
 
+        case 'singleSnow':
+            singleSnow();
+            break;
+
         case 'logout':
             logout();
             break;

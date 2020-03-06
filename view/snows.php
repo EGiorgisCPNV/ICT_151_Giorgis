@@ -27,7 +27,7 @@ $rows=0; // Column count
 
                     <li class="span3">
                         <div class="thumbnail">
-                            <img src="view/content/images/images ict-151/<?= $result['code']; ?>.jpg" width="20px">
+                            <a href="view/content/images ict-151/<?= $result['code']; ?>_small.jpg" target="blank"><img src="<?= $result['photo']; ?>" alt="<?= $result['code']; ?>" ></a>
                             <div class="caption" >
                                 <h3><a href="index.php?action=displayASnow&code=<?= $result['code']; ?>"><?= $result['code']; ?></a></h3>
                                 <p><strong>Marque : </strong><?= $result['brand']; ?></p>

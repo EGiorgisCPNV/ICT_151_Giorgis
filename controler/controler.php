@@ -91,6 +91,20 @@ function snows()
 }
 
 
+
+/**
+ * Function to redirect the user to the produit page
+ *  (epending the action received by the index)
+ */
+function singleSnow()
+{
+    $_GET['action'] = "singleSnow";
+
+    $tableauSnows=showSnows();
+    require "view/singleSnow.php";
+}
+
+
 //cette fonction va supprimer ce qu'il avait dans la $_SESSION puis appeler la fonction home()
 function logout()
 {
