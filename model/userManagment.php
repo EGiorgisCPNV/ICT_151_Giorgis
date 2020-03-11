@@ -15,8 +15,8 @@ function checkLogin($post)
     if ($result) {
         $passwordHash = $result[0]["userPsw"];
         if (password_verify(@$post['password'], $passwordHash)) {
-            $_SESSION['MotCle'] = @$post['username'];
-            $_SESSION['MotCleAdmin'] = $result[0]["admin"];
+            $_SESSION['MotCle'] = @$post['username'];//SESSION c'est comme un $_GET sauf qu'un $_GET c'est des chose de l'url contrairement a SESSION ou tu peut le faire égale a n'importequoi (MotCle c'est juste l'indentifiant de cette session)
+            $_SESSION['MotCleAdmin'] = $result[0]["admin"];//SESSION c'est comme un $_GET sauf qu'un $_GET c'est des chose de l'url contrairement a SESSION ou tu peut le faire égale a n'importequoi(MotCleAdmin c'est juste l'indentifiant de cette session)
             return true;
         } else {
             return false;

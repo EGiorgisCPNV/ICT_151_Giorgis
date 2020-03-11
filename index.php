@@ -33,7 +33,7 @@ if(isset ($_GET['action'])){
             singleSnow($_GET['code']);
             break;
 
-        case 'snowSeller':
+        case 'snowsSeller':
             snowsSeller();
             break;
 
