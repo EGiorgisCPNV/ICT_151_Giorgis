@@ -18,11 +18,11 @@ if(isset ($_GET['action'])){
             break;
 
         case 'register':
-            register(@$_POST);
+            register($_POST);
             break;
 
         case 'login':
-            login(@$_POST);
+            login($_POST);
             break;
 
         case 'snows':
@@ -30,7 +30,11 @@ if(isset ($_GET['action'])){
             break;
 
         case 'singleSnow':
-            singleSnow();
+            singleSnow($_GET['code']);
+            break;
+
+        case 'snowSeller':
+            snowsSeller();
             break;
 
         case 'logout':

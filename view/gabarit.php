@@ -79,31 +79,58 @@
 
 
                   <!-- boutton Register-->
-                  <li<?php if (($_GET['action'] == "register"))  : ?>
-                      class="active"
-                  <?php endif ?>>
+                  <li<?php if (($_GET['action'] == "register"))  : ?> class="active"  <?php endif ?>>
+
+
                       <a href="index.php?action=register">Register</a></li>
 
 
-                  <!-- boutton Snows-->
-                  <li<?php if (($_GET['action'] == "snows"))  : ?>
-                      class="active"
-                  <?php endif ?>>
-                      <a href="index.php?action=snows">Snows</a></li>
 
 
-                  <!-- boutton logout-->
+
+                  <!-- boutton logout et les choses qu'il va afficher si il est connecter-->
                   <?php if (isset($_SESSION['MotCle'])) : //les double points sont obligatoire sa remplace un "{" dans les fichier html?>
                       <li><a href="index.php?action=logout">Logout</a></li>
 
-                      <?php echo "<label>Vous êtes connecté en tant que </label>" . $_SESSION['MotCle'] ?>
+
+                  <!-- cette condition sert a savoir si la personne est entré avec un compte admin ou non-->
+                  <?php if ($_SESSION['MotCleAdmin']==1) : ?>
+
+
+                          <!-- boutton snows sans admin-->
+                          <li<?php if ($_GET['action'] == "snows") : ?>
+                              class="active"
+                          <?php endif ?>>
+                              <a href="index.php?action=snows">Snows</a></li>
+
+
+                          <!-- boutton snows avec admin-->
+                          <li<?php if ($_GET['action'] == "snowsSeller") : ?>
+                              class="active"
+                          <?php endif ?>>
+                              <a href="index.php?action=snowsSeller">SnowsAdmin</a></li>
+
+                  <?php elseif($_SESSION['MotCleAdmin']==0): ?>
+
+                          <!-- boutton snows sans admin-->
+                          <li<?php if (($_GET['action'] == "snows"))  : ?>
+                              class="active"
+                          <?php endif ?>>
+                              <a href="index.php?action=snows">Snows</a></li>
+
+
+                      <?php endif ?>
+                      <?php echo "<label>Vous êtes connecté en tant que </label>" . $_SESSION['MotCle']?>
                   <?php else : ?>
+
 
                       <!-- boutton login-->
                       <li<?php if (($_GET['action'] == "login"))  : ?>
                           class="active"
                       <?php endif ?>>
                           <a href="index.php?action=login">Login</a></li>
+
+
 
                   <?php endif ?>
 

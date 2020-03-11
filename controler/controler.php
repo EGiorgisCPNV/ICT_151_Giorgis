@@ -65,12 +65,16 @@ function login($postLoin)
 
         //cette condition va checker ce que l'utilisateur va rentrer dans la page login est rediriger sur la page home si ce qu'il a rentrer correspond a la la fonction checkLogin dans le model.php sinon sur la page login sa sa ne corespond pas
         if (checkLogin($postLoin)) {
-            $_SESSION['MotCle'] = @$postLoin['username'];
+
             home();
         } else {
             echo "Soit votre email ou soit votre mot de passe est incorrect";
             require "view/login.php";
         }
+
+
+
+
     } else
         require "view/login.php";
 
@@ -96,12 +100,21 @@ function snows()
  * Function to redirect the user to the produit page
  *  (epending the action received by the index)
  */
-function singleSnow()
+function singleSnow($code)
 {
     $_GET['action'] = "singleSnow";
 
-    $tableauSnows=showSnows();
+    $tableSingleSnow=showSingleSnow($code);
+
     require "view/singleSnow.php";
+}
+
+
+function snowsSeller()
+{
+    $_GET['action'] = "snowsSeller";
+
+    require "view/snowsSeller.php";
 }
 
 

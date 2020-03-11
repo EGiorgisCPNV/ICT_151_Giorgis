@@ -7,7 +7,7 @@ function checkLogin($post)
 {
 
     //cette requete sert a vérifier si ce qu'il a entrer comme username ou pseudo corresond a quelque chose dans la BD car on ne peut plus vérifier le password vu qu'il est hasher
-    $requete = "SELECT userEmailAddress, userPsw, pseudo FROM users where userEmailAddress = '" . @$post['username']. "' OR pseudo ='".@$post['username']. "';";
+    $requete = "SELECT userEmailAddress, userPsw, pseudo, admin FROM users where userEmailAddress = '" . @$post['username']. "' OR pseudo ='".@$post['username']. "';";
 
     $result = executeQuery($requete);
 
@@ -15,10 +15,14 @@ function checkLogin($post)
     if ($result) {
         $passwordHash = $result[0]["userPsw"];
         if (password_verify(@$post['password'], $passwordHash)) {
+            $_SESSION['MotCle'] = @$post['username'];
+            $_SESSION['MotCleAdmin'] = $result[0]["admin"];
             return true;
         } else {
             return false;
         }
+
+
     } else
 
         return false;

@@ -11,8 +11,20 @@
 function showSnows()
 {
 
-    $requete = "SELECT * FROM snows ;";
+    $requete = "SELECT * FROM snows;";
     $request = executeQuery($requete);
+
+    return $request;
+}
+
+
+//cette fonction va afficher un snow precis
+function showSingleSnow($code)
+{
+
+    $requete = "SELECT * FROM snows where code ='$code';";
+    $request = executeQuery($requete);
+
 
     return $request;
 }

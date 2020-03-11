@@ -6,7 +6,7 @@
  * Initial version by: Esteban.GIORGIS
  * Initial version created on: 04.03.2020 13:50
  */
-$title="Snows";
+$titre="Snows";
 
 ob_start();
 $rows=0; // Column count
@@ -27,9 +27,9 @@ $rows=0; // Column count
 
                     <li class="span3">
                         <div class="thumbnail">
-                            <a href="view/content/images ict-151/<?= $result['code']; ?>_small.jpg" target="blank"><img src="<?= $result['photo']; ?>" alt="<?= $result['code']; ?>" ></a>
-                            <div class="caption" >
-                                <h3><a href="index.php?action=displayASnow&code=<?= $result['code']; ?>"><?= $result['code']; ?></a></h3>
+                            <a href="view/content/images/<?= $result['code']; ?>_small.jpg" target="blank"><img src="<?= $result['photo']; ?>" alt="<?= $result['code']; ?>" ></a>
+                            <div class="caption">
+                                <h3><a href="index.php?action=singleSnow&code=<?= $result['code']; ?>"><?= $result['code']; ?></a></h3>
                                 <p><strong>Marque : </strong><?= $result['brand']; ?></p>
                                 <p><strong>Modèle : </strong><?= $result['model']; ?></p>
                                 <p><strong>Longueur : </strong><?= $result['snowLength']; ?> cm</p>
