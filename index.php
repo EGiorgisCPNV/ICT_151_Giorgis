@@ -37,6 +37,10 @@ if(isset ($_GET['action'])){
             snowsSeller();
             break;
 
+        case 'deleteSnow':
+            deleteSnow($_GET['code']);
+            break;
+
         case 'logout':
             logout();
             break;

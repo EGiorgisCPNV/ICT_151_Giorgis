@@ -28,3 +28,15 @@ function showSingleSnow($code)
 
     return $request;
 }
+
+
+//cette fonction va afficher un snow precis
+function deleteSnows($codeDelete)
+{
+
+    $requete ="DELETE FROM snows WHERE code = '$codeDelete' ;";
+    $request = executeQuery($requete);
+
+
+    return $request;
+}

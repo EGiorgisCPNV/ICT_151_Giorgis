@@ -114,6 +114,14 @@ function snowsSeller()
     require "view/snowsSeller.php";
 }
 
+function deleteSnow($codeDelete)
+{
+    $_GET['action'] = "deleteSnow";
+    $tableauSnows=showSnows();
+    deleteSnows($codeDelete);
+    snowsSeller();
+}
+
 
 //cette fonction va supprimer ce qu'il avait dans la $_SESSION puis appeler la fonction home()
 function logout()
