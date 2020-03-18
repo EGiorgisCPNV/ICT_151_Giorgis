@@ -34,7 +34,6 @@ function register($postRegister)
     $_GET['action'] = "register";
 
 
-
     if (isset ($postRegister['usernameRegister']) || isset ($postRegister['passwordRegister'])) {
 
         if (creatUser($postRegister)) {
@@ -79,6 +78,40 @@ function login($postLoin)
 }
 
 
+
+
+function addSnows($post)
+{
+    $_GET['action'] = "addSnows";
+
+    $Code = $post["codeAdd"];
+    $Brand = $post["brandAdd"];
+    $Model = $post["modelAdd"];
+    $SnowLength = $post["snowLengthAdd"];
+    $QtyAvailable = $post["qtyAvailableAdd"];
+    $Description = $post["descriptionAdd"];
+    $DailyPrice = $post["dailyPriceAdd"];
+    $Photo = $post["photoAdd"];
+
+
+    if (isset($Code)) {
+
+        if($Code!=codeVerification()){
+            addSnow($Code, $Brand, $Model, $SnowLength,$QtyAvailable,$Description, $DailyPrice,$Photo);
+            snowsSeller();
+        }
+        else{
+            echo "Vous avez ajouter un snow avec un code déjà existant";
+            snowsSeller();
+        }
+
+    } else {
+        echo "erreur dans l'ajout";
+        snowsSeller();
+    }
+
+}
+
 /**
  * Function to redirect the user to the produit page
  *  (epending the action received by the index)
@@ -87,10 +120,9 @@ function snows()
 {
     $_GET['action'] = "snows";
 
-    $tableauSnows=showSnows();
+    $tableauSnows = showSnows();
     require "view/snows.php";
 }
-
 
 
 /**
@@ -101,7 +133,7 @@ function singleSnow($code)
 {
     $_GET['action'] = "singleSnow";
 
-    $tableSingleSnow=showSingleSnow($code);
+    $tableSingleSnow = showSingleSnow($code);
 
     require "view/singleSnow.php";
 }
@@ -110,17 +142,26 @@ function singleSnow($code)
 function snowsSeller()
 {
     $_GET['action'] = "snowsSeller";
-    $tableauSnows=showSnows();
+    $tableauSnows = showSnows();
     require "view/snowsSeller.php";
 }
 
 function deleteSnow($codeDelete)
 {
     $_GET['action'] = "deleteSnow";
-    $tableauSnows=showSnows();
-    deleteSnows($codeDelete);
-    snowsSeller();
+
+    //cette condition sert a verifier si le snow est deja supprimer ou non
+    if (isset($codeDelete)) {
+        $tableauSnows = showSnows();
+        deleteSnows($codeDelete);
+        snowsSeller();
+    } else {
+        echo "Ce snow a deja été supprimer";
+        snowsSeller();
+    }
 }
+
+
 
 
 //cette fonction va supprimer ce qu'il avait dans la $_SESSION puis appeler la fonction home()

@@ -33,7 +33,36 @@ ob_start();
         padding: 8px;
     }
 
+
+
+    /* The popup form - hidden by default */
+    .formulaireAjouter {
+        animation: fadein 5s;
+        display: none;
+        position:absolute;
+        width: 400px;
+        height: auto;
+        left:0;
+        right: 0;
+        margin: auto;
+        padding-left:3px;
+        border: solid 1px black;
+        background-color:#149bdf;
+
+
+    }
+
 </style>
+
+<script>
+
+    function showPopUp() {
+        document.getElementById("myPopup").style.display = "block";
+    }
+
+</script>
+
+
 <article>
     <header>
         <h2></h2>
@@ -74,6 +103,46 @@ ob_start();
                         <th><a href="index.php?action=deleteSnow&code=<?= $result['code']; ?>"><input type="button" value="Supprimer"></a></th>
                     </tr>
                 <?php endforeach ?>
+
+
+
+                <button onclick="showPopUp()">Ajouter</button>
+                <div class="formulaireAjouter" id="myPopup">
+
+                    <form class="form" method="POST" action="index.php?action=addSnows">
+
+                        <label>Code</label>
+                        <input type="text" name="codeAdd" required>
+
+                        <label>Brand</label>
+                        <input type="text" name="brandAdd" required>
+
+                        <label>Model</label>
+                        <input type="text" name="modelAdd" required>
+
+                        <label>SnowLength</label>
+                        <input type="number" name="snowLengthAdd" required>
+
+                        <label>QtyAvaible</label>
+                        <input type="number" name="qtyAvailableAdd">
+
+                        <label>Description</label>
+                        <input type="text" name="descriptionAdd">
+
+                        <label>DailyPrice</label>
+                        <input type="number" name="dailyPriceAdd" required>
+
+                        <label>Photo</label>
+                        <input type="text" name="photoAdd">
+
+                        <label>Active</label>
+                        <input type="number" name="activeAdd">
+
+                        <input type="submit" name="boutton" value="Ajouter">
+
+                    </form>
+                </div>
+
             </table>
 
         </div>

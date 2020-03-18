@@ -27,6 +27,25 @@ function executeQuery($query)
     return $queryResult;
 }
 
+
+/*
+//Source : http://php.net/manual/en/pdo.prepare.php
+function insertQuery($query)
+{
+    $queryResult = null;
+
+    $dbConnexion = openDBConnexion();//open database connexion
+    if ($dbConnexion != null) {
+        $statement = $dbConnexion->prepare($query);//prepare query
+        $statement->execute();//execute query
+        //$queryResult = $statement->fetchAll();//prepare result for client
+    }
+    $dbConnexion = null;//close database connexion
+    return $queryResult;
+}
+*/
+
+
 //Source : http://php.net/manual/en/pdo.construct.php
 function openDBConnexion()
 {

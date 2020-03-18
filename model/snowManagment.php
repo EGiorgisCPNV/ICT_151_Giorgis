@@ -30,6 +30,18 @@ function showSingleSnow($code)
 }
 
 
+//cette fonction juste chercher tout les code de chaque article
+function codeVerification()
+{
+
+    $requete = "SELECT code FROM snows;";
+    $request = executeQuery($requete);
+
+
+    return $request;
+}
+
+
 //cette fonction va afficher un snow precis
 function deleteSnows($codeDelete)
 {
@@ -38,5 +50,16 @@ function deleteSnows($codeDelete)
     $request = executeQuery($requete);
 
 
+    return $request;
+}
+
+
+
+//cette fonction va ajouter un snow dans la BD
+function addSnow($code,$brand,$model,$snowLength,$qtyAvailable,$description,$dailyPrice,$photo){
+
+    $requete ="INSERT INTO snows (code, brand, model, snowLength,qtyAvailable,description, dailyPrice,photo) VALUES ('$code','$brand','$model','$snowLength','$qtyAvailable','$description','$dailyPrice','$photo');";
+
+    $request = executeQuery($requete);
     return $request;
 }
