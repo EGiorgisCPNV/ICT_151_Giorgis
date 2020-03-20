@@ -1,22 +1,23 @@
 <?php
 
-require "dbConnector.php";
+//soit on met require_once sur tous les fichier de managment ou alors te met juste un  require sur un seul
+require_once "dbConnector.php";
 
 //cette fonction regarde si le login inscrit est juste
 function checkLogin($post)
 {
 
     //cette requete sert a vérifier si ce qu'il a entrer comme username ou pseudo corresond a quelque chose dans la BD car on ne peut plus vérifier le password vu qu'il est hasher
-    $requete = "SELECT userEmailAddress, userPsw, pseudo, admin FROM users where userEmailAddress = '" . @$post['username']. "' OR pseudo ='".@$post['username']. "';";
+    $requete = "SELECT userEmailAddress, userHashPsw, userType FROM users where userEmailAddress = '" . $post['username']. "';";
 
     $result = executeQuery($requete);
 
 
     if ($result) {
-        $passwordHash = $result[0]["userPsw"];
-        if (password_verify(@$post['password'], $passwordHash)) {
-            $_SESSION['MotCle'] = @$post['username'];//SESSION c'est comme un $_GET sauf qu'un $_GET c'est des chose de l'url contrairement a SESSION ou tu peut le faire égale a n'importequoi (MotCle c'est juste l'indentifiant de cette session)
-            $_SESSION['MotCleAdmin'] = $result[0]["admin"];//SESSION c'est comme un $_GET sauf qu'un $_GET c'est des chose de l'url contrairement a SESSION ou tu peut le faire égale a n'importequoi(MotCleAdmin c'est juste l'indentifiant de cette session)
+        $passwordHash = $result[0]["userHashPsw"];
+        if (password_verify($post['password'], $passwordHash)) {
+            $_SESSION['MotCle'] = $post['username'];//SESSION c'est comme un $_GET sauf qu'un $_GET c'est des chose de l'url contrairement a SESSION ou tu peut le faire égale a n'importequoi (MotCle c'est juste l'indentifiant de cette session)
+            $_SESSION['MotCleAdmin'] = $result[0]["userType"];//SESSION c'est comme un $_GET sauf qu'un $_GET c'est des chose de l'url contrairement a SESSION ou tu peut le faire égale a n'importequoi(MotCleAdmin c'est juste l'indentifiant de cette session)
             return true;
         } else {
             return false;
@@ -24,7 +25,6 @@ function checkLogin($post)
 
 
     } else
-
         return false;
 
 }
@@ -34,7 +34,7 @@ function checkLogin($post)
 function creatUser($post)
 {
 
-    $requeteCreateUser = "Select userEmailAddress, pseudo from users where userEmailAddress ='" . @$post['usernameRegister'] . "' or pseudo = '" . @$post['pseudoRegister'] . "';";
+    $requeteCreateUser = "Select userEmailAddress from users where userEmailAddress ='" . $post['usernameRegister'] . "';";
     $result = executeQuery($requeteCreateUser);
 
 
@@ -43,11 +43,11 @@ function creatUser($post)
         echo "Ce compte existe déjà";
         return false;
     } else {
-        if (@$post['passwordRegister'] == @$post['passwordConfirmRegister']) {
+        if ($post['passwordRegister'] == $post['passwordConfirmRegister']) {
 
 
-            $passwordHash = password_hash(@$post['passwordRegister'], PASSWORD_DEFAULT);
-            $requeteCreate = "INSERT INTO users (userEmailAddress, userPsw, pseudo) VALUES ('" . @$post['usernameRegister']  . "','" . $passwordHash . "','" . @$post['pseudoRegister'] . "');";
+            $passwordHash = password_hash($post['passwordRegister'], PASSWORD_DEFAULT);
+            $requeteCreate = "INSERT INTO users (userEmailAddress, userHashPsw) VALUES ('" . $post['usernameRegister']  . "','" . $passwordHash . "');";
 
 
             executeQuery($requeteCreate);

@@ -92,25 +92,27 @@
 
 
                                     <!-- cette condition sert a savoir si la personne est entré avec un compte admin ou non-->
-                                    <?php if (isset($_SESSION['MotCleAdmin']) && $_SESSION['MotCleAdmin'] == 1) : ?>
+                                    <?php if (isset($_SESSION['MotCleAdmin']) && $_SESSION['MotCleAdmin'] == 0) : ?>
 
-                                        <!-- boutton snows sans admin-->
+                                        <!-- boutton snows vue client-->
                                         <li<?php if ($_GET['action'] == "snows") : ?> class="active"<?php endif ?> >
                                             <a href="index.php?action=snows">Snows</a></li>
 
 
-                                        <!-- boutton snows avec admin-->
+                                        <!-- boutton snows vue vendeur-->
                                         <li<?php if ($_GET['action'] == "snowsSeller") : ?> class="active"<?php endif ?>>
-
                                             <a href="index.php?action=snowsSeller">SnowsAdmin</a></li>
 
-                                    <?php elseif (isset($_SESSION['MotCleAdmin']) && $_SESSION['MotCleAdmin'] == 0): ?>
+
+                                    <?php elseif (isset($_SESSION['MotCleAdmin']) && $_SESSION['MotCleAdmin'] == 1): ?>
 
                                         <!-- boutton snows sans admin-->
                                         <li<?php if (($_GET['action'] == "snows"))  : ?> class="active" <?php endif ?>>
                                             <a href="index.php?action=snows">Snows</a></li>
 
                                     <?php endif ?>
+
+
                                     <li><a href="index.php?action=logout">Logout</a></li>
                                     <label>Vous êtes connecté en tant qu'<?php echo $_SESSION['MotCle'] ?></label>
 

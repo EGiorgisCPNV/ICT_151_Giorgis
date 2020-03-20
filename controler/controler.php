@@ -11,8 +11,8 @@
 
 session_start();//ouvre la session
 
-require "model/userManagment.php";
-require "model/snowManagment.php";
+require_once "model/userManagment.php";
+require_once "model/snowManagment.php";
 
 
 /**
@@ -59,8 +59,7 @@ function login($postLoin)
     $_GET['action'] = "login";
 
 
-    if (isset ($postLoin['username']) || isset ($postLoin['password'])) {
-
+    if (isset ($postLoin['username']) && isset ($postLoin['password'])) {
 
         //cette condition va checker ce que l'utilisateur va rentrer dans la page login est rediriger sur la page home si ce qu'il a rentrer correspond a la la fonction checkLogin dans le model.php sinon sur la page login sa sa ne corespond pas
         if (checkLogin($postLoin)) {
@@ -77,40 +76,6 @@ function login($postLoin)
 
 }
 
-
-
-
-function addSnows($post)
-{
-    $_GET['action'] = "addSnows";
-
-    $Code = $post["codeAdd"];
-    $Brand = $post["brandAdd"];
-    $Model = $post["modelAdd"];
-    $SnowLength = $post["snowLengthAdd"];
-    $QtyAvailable = $post["qtyAvailableAdd"];
-    $Description = $post["descriptionAdd"];
-    $DailyPrice = $post["dailyPriceAdd"];
-    $Photo = $post["photoAdd"];
-
-
-    if (isset($Code)) {
-
-        if($Code!=codeVerification()){
-            addSnow($Code, $Brand, $Model, $SnowLength,$QtyAvailable,$Description, $DailyPrice,$Photo);
-            snowsSeller();
-        }
-        else{
-            echo "Vous avez ajouter un snow avec un code déjà existant";
-            snowsSeller();
-        }
-
-    } else {
-        echo "erreur dans l'ajout";
-        snowsSeller();
-    }
-
-}
 
 /**
  * Function to redirect the user to the produit page
@@ -146,22 +111,71 @@ function snowsSeller()
     require "view/snowsSeller.php";
 }
 
-function deleteSnow($codeDelete)
-{
-    $_GET['action'] = "deleteSnow";
 
-    //cette condition sert a verifier si le snow est deja supprimer ou non
-    if (isset($codeDelete)) {
-        $tableauSnows = showSnows();
-        deleteSnows($codeDelete);
-        snowsSeller();
+//cette fonction va ajouter un snow
+function addSnows($postFormulaire)
+{
+    $_GET['action'] = "addSnows";
+
+    $Code = $postFormulaire["codeAdd"];
+    $Brand = $postFormulaire["brandAdd"];
+    $Model = $postFormulaire["modelAdd"];
+    $SnowLength = $postFormulaire["snowLengthAdd"];
+    $QtyAvailable = $postFormulaire["qtyAvailableAdd"];
+    $Description = $postFormulaire["descriptionAdd"];
+    $DailyPrice = $postFormulaire["dailyPriceAdd"];
+    $Photo = $postFormulaire["photoAdd"];
+    $Active = $postFormulaire["activeAdd"];
+
+    $codeVerifier = codeVerification($postFormulaire['codeAdd']);//A SAVOIR QUE TU DEVRA SPESIFIER QUEL CHAMPS DE LA BD ET QUEL LIGNE (TJR METTRE [0]) MAIS AVEC $codeVerifier (exemple : $codeVerifier[0]['code'], etc...)
+
+    if (isset($Code)) {
+
+        if ($Code != @$codeVerifier[0]['code']) {
+            addSnow($Code, $Brand, $Model, $SnowLength ,$QtyAvailable,$Description,$DailyPrice,$Photo,$Active);
+            echo "Snow ajouter";
+        } else {
+            echo "Vous avez ajouter un snow avec un code déjà existant";
+        }
+
     } else {
-        echo "Ce snow a deja été supprimer";
-        snowsSeller();
+        echo "erreur dans l'ajout";
     }
+
+    snowsSeller();
+
 }
 
 
+//cette fonction va effacer un snow selectionner
+function deleteSnow($Delete)
+{
+    $_GET['action'] = "deleteSnow";
+
+
+    $idVerifier = verifiRentsDetails($Delete['id']);//A SAVOIR QUE TU DEVRA SPESIFIER QUEL CHAMPS DE LA BD ET QUEL LIGNE (TJR METTRE [0]) MAIS AVEC $id (exemple : $id[0]['idSnow'], etc...)
+
+    //cette condition sert a verifier si le snow est deja supprimer ou non
+    if (isset($Delete['code'])) {
+
+        if ($Delete['id'] != @$idVerifier[0]['idSnow']) {
+            $tableauSnows = showSnows();
+            deleteSnows($Delete['code']);
+            echo "Le snow a bien été supprimmer";
+
+
+        } else {
+            echo "Il y a deja des gens qui ont acheter se modele";
+        }
+
+
+    } else {
+        echo "Ce snow a deja été supprimer";
+    }
+
+    snowsSeller();
+
+}
 
 
 //cette fonction va supprimer ce qu'il avait dans la $_SESSION puis appeler la fonction home()

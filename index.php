@@ -7,7 +7,7 @@
  */
 
 
-require "controler/controler.php";
+require_once "controler/controler.php";
 
 //use case qui va rediriger vers la page avec la fonction choisie, example : home()
 if(isset ($_GET['action'])){
@@ -39,7 +39,7 @@ if(isset ($_GET['action'])){
             break;
 
         case 'deleteSnow':
-            deleteSnow($_GET['code']);
+            deleteSnow($_GET);
             break;
 
         case 'addSnows':

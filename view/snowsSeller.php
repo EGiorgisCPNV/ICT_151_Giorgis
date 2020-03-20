@@ -48,16 +48,42 @@ ob_start();
         padding-left:3px;
         border: solid 1px black;
         background-color:#149bdf;
+    }
 
-
+    /* The popup form - hidden by default */
+    .formulaireModifier {
+        animation: fadein 5s;
+        display: none;
+        position:absolute;
+        width: 400px;
+        height: auto;
+        left:0;
+        right: 0;
+        margin: auto;
+        padding-left:3px;
+        border: solid 1px black;
+        background-color:#149bdf;
     }
 
 </style>
 
 <script>
 
-    function showPopUp() {
-        document.getElementById("myPopup").style.display = "block";
+    function showPopUpAjouter() {
+        document.getElementById("myPopupAjouter").style.display = "block";
+    }
+
+
+    function showPopUpModifier() {
+        document.getElementById("myPopupModifier").style.display = "block";
+
+    }
+
+
+
+    function downPopUp() {
+        document.getElementById("myPopupAjouter").style.display = "";
+        document.getElementById("myPopupModifier").style.display = "";
     }
 
 </script>
@@ -78,7 +104,6 @@ ob_start();
                     <th id="titre">Prix</th>
                     <th id="titre">Disponnibilité</th>
                     <th id="titre">Photo</th>
-                    <th id="titre">Modifier</th>
                     <th id="titre">Supprimer</th>
                 </tr>
                 <?php foreach ($tableauSnows as $result) : ?>
@@ -92,24 +117,37 @@ ob_start();
                         <th><p><?= $result['snowLength']; ?> cm</p></th>
                         <th><p>CHF <?= $result['dailyPrice']; ?>.- / jour</p></th>
                         <th><p><?= $result['qtyAvailable']; ?></p></th>
-                        <th><a href="view/content/images/<?= $result['code']; ?>_small.jpg" target="blank">
-                                <!--lien quand tu cliques dessus-->
-                                <img src="<?= $result['photo']; ?>_small" alt="<?= $result['code']; ?>_small">
-                                <!--image qui va être affichée--></a></th>
 
-                        <th><a href="" target="blank"><!--lien quand tu cliques dessus-->
-                                <img src="view/content/images/modif.jpg" alt="<?= $result['code']; ?>_small">
-                                <!--image qui va être affichée--></a></th>
-                        <th><a href="index.php?action=deleteSnow&code=<?= $result['code']; ?>"><input type="button" value="Supprimer"></a></th>
+                        <th>
+                            <!--lien quand tu cliques dessus-->
+                            <a href="view/content/images/<?= $result['code']; ?>.jpg" target="blank">
+
+                                <!--image qui va être affichée-->
+                                <img src="<?= $result['photo']; ?>" alt="<?= $result['code']; ?>"></a>
+                        </th>
+
+
+                        <th><a href="index.php?action=deleteSnow&id=<?= $result['id']; ?>&code=<?= $result['code']; ?>"><input type="button" value="Supprimer"></a></th>
                     </tr>
                 <?php endforeach ?>
 
 
-
-                <button onclick="showPopUp()">Ajouter</button>
-                <div class="formulaireAjouter" id="myPopup">
+                <!-- bouton ajouter-->
+                <button onclick="showPopUpAjouter()">Ajouter</button>
+                <div class="formulaireAjouter" id="myPopupAjouter">
 
                     <form class="form" method="POST" action="index.php?action=addSnows">
+
+
+                        <select>
+                            <option>
+                                        <?php
+                                            $idDesSnows=showSnows();
+                                        ?>
+
+                            </option>
+                        </select>
+
 
                         <label>Code</label>
                         <input type="text" name="codeAdd" required>
@@ -123,7 +161,7 @@ ob_start();
                         <label>SnowLength</label>
                         <input type="number" name="snowLengthAdd" required>
 
-                        <label>QtyAvaible</label>
+                        <label>QtyAvailable (max 6) </label>
                         <input type="number" name="qtyAvailableAdd">
 
                         <label>Description</label>
@@ -133,15 +171,68 @@ ob_start();
                         <input type="number" name="dailyPriceAdd" required>
 
                         <label>Photo</label>
-                        <input type="text" name="photoAdd">
+                        <input type="file" name="photoAdd">
 
-                        <label>Active</label>
+                        <label>Active (soit 1 soit 0)</label>
                         <input type="number" name="activeAdd">
 
-                        <input type="submit" name="boutton" value="Ajouter">
-
+                        <input type="submit" name="bouttonAjouter" value="Ajouter">
+                        <button onclick="downPopUp()">Annuler</button>
                     </form>
+
                 </div>
+                <!-- fin du boutton ajouter-->
+
+
+
+
+
+
+                <!-- bouton modifier-->
+                <button onclick="showPopUpModifier()">Midifier</button>
+                <div class="formulaireModifier" id="myPopupModifier">
+
+                    <form class="form" method="POST" action="index.php?action=addSnows">
+
+                        <label>Id</label>
+                        <select>
+                            <option><? $tableauSnows[0]['id']; ?></option>
+                        </select>
+
+                        <label>Code</label>
+                        <input type="text" name="codeMidif" value="<?= $result['code']; ?>" required>
+
+                        <label>Brand</label>
+                        <input type="text" name="brandMidif" value="sdf" required>
+
+                        <label>Model</label>
+                        <input type="text" name="modelMidif" required>
+
+                        <label>SnowLength</label>
+                        <input type="number" name="snowLengthMidif" required>
+
+                        <label>QtyAvailable (max 6) </label>
+                        <input type="number" name="qtyAvailableMidif">
+
+                        <label>Description</label>
+                        <input type="text" name="descriptionMidif">
+
+                        <label>DailyPrice</label>
+                        <input type="number" name="dailyPriceMidif" required>
+
+                        <label>Photo</label>
+                        <input type="file" name="photoMidif">
+
+                        <label>Active (soit 1 soit 0)</label>
+                        <input type="number" name="activeMidif">
+
+                        <input type="submit" name="bouttonModdifer" value="Ajouter">
+                        <button onclick="downPopUp()">Annuler</button>
+                    </form>
+
+                </div>
+                <!-- fin du boutton modifier-->
+
 
             </table>
 

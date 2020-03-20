@@ -16,10 +16,6 @@ $titre="Rent A Snow - Register";
         <input type="text" name="usernameRegister" placeholder="Enter Username" id="usernameRegister" required>
 
         <br>
-        <label>Pseudo</label>
-        <input type="text" name="pseudoRegister" placeholder="Enter Password" id="pseudoRegister" required>
-
-        <br>
         <label>Mot de passe</label>
         <input type="password" name="passwordRegister" placeholder="Enter Password" id="passwordRegister" required>
 
