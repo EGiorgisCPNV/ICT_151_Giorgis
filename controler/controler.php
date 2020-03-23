@@ -1,12 +1,8 @@
 <?php
 /**
- * Author   : nicolas.glassey@cpnv.ch
+ * Author   : esteban.giorgis@cpnv.ch
  * Project  : 151_2019_ForStudents
  * Created  : 05.02.2019 - 18:40
- *
- * Last update :    [01.12.2018 author]
- *                  [add $logName in function setFullPath]
- * Git source  :    [link]
  */
 
 session_start();//ouvre la session
@@ -77,10 +73,7 @@ function login($postLoin)
 }
 
 
-/**
- * Function to redirect the user to the produit page
- *  (epending the action received by the index)
- */
+//cette fonction va rediriger vers la page qui affiche tous les snows pour la vue cliente
 function snows()
 {
     $_GET['action'] = "snows";
@@ -90,10 +83,7 @@ function snows()
 }
 
 
-/**
- * Function to redirect the user to the produit page
- *  (epending the action received by the index)
- */
+//cette fonction va rediriger vers la page qui affiche les détails d'un snow
 function singleSnow($code)
 {
     $_GET['action'] = "singleSnow";
@@ -104,6 +94,7 @@ function singleSnow($code)
 }
 
 
+//cette fonction va rediriger vers la page qui affiche les snows pour le vendeur
 function snowsSeller()
 {
     $_GET['action'] = "snowsSeller";
@@ -112,7 +103,7 @@ function snowsSeller()
 }
 
 
-//cette fonction va ajouter un snow
+//cette fonction va rediriger vers la fonction qui ajoutera un snow
 function addSnows($postFormulaire)
 {
     $_GET['action'] = "addSnows";
@@ -147,7 +138,7 @@ function addSnows($postFormulaire)
 }
 
 
-//cette fonction va effacer un snow selectionner
+//cette fonction va rediriger vers la fonction qui supprimera un snow seulement si le snow n'apas encore été supprimmer
 function deleteSnow($Delete)
 {
     $_GET['action'] = "deleteSnow";

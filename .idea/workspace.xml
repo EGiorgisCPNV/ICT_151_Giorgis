@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/view/snowsSeller.php" line="246" />
+    <bookmark url="file://$PROJECT_DIR$/view/snowsSeller.php" line="250" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f6b2ab00-b284-48bf-95b3-e5b3b6546a1d" name="Default" comment="">
@@ -36,37 +36,34 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="478">
-              <caret line="45" column="29" lean-forward="true" selection-start-line="45" selection-start-column="29" selection-end-line="45" selection-end-column="29" />
+            <state relative-caret-position="-340">
+              <caret line="1" selection-start-line="1" selection-end-line="6" selection-end-column="3" />
+              <folding>
+                <element signature="e#6#135#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controler/controler.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="158">
+              <caret line="100" column="17" selection-start-line="100" selection-start-column="4" selection-end-line="100" selection-end-column="17" />
+              <folding>
+                <element signature="e#6#248#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/controler/controler.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="129" column="134" selection-start-line="129" selection-start-column="134" selection-end-line="129" selection-end-column="134" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/view/snowsSeller.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="518">
-              <caret line="82" selection-start-line="82" selection-end-line="82" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/model/snowManagment.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="18" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="18" />
+            <state relative-caret-position="155">
+              <caret line="209" column="70" lean-forward="true" selection-start-line="209" selection-start-column="70" selection-end-line="209" selection-end-column="70" />
               <folding>
-                <element signature="e#6#142#0#PHP" expanded="true" />
+                <element signature="e#6#140#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -75,17 +72,23 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/view/gabarit.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="119" selection-start-line="119" selection-end-line="119" />
+            <state relative-caret-position="-1071">
+              <caret line="6" column="2" lean-forward="true" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="2" />
+              <folding>
+                <element signature="e#6#72#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/view/login.php">
+        <entry file="file://$PROJECT_DIR$/model/snowManagment.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="15" column="41" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="41" />
+            <state relative-caret-position="379">
+              <caret line="72" selection-start-line="72" selection-end-line="72" />
+              <folding>
+                <element signature="e#6#142#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -93,8 +96,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/model/userManagment.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="37" lean-forward="true" selection-start-line="12" selection-start-column="37" selection-end-line="12" selection-end-column="37" />
+            <state relative-caret-position="164">
+              <caret line="11" selection-start-line="11" selection-end-line="11" />
+              <folding>
+                <element signature="e#6#143#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -102,8 +108,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/view/register.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="5" lean-forward="true" selection-start-column="5" selection-end-column="5" />
+            <state relative-caret-position="17">
+              <caret line="1" column="3" lean-forward="true" selection-start-line="1" selection-start-column="3" selection-end-line="1" selection-end-column="3" />
+              <folding>
+                <element signature="e#6#138#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -111,8 +120,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/model/dbConnector.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="15" column="21" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="21" />
+            <state relative-caret-position="17">
+              <caret line="1" column="3" lean-forward="true" selection-start-line="1" selection-start-column="3" selection-end-line="1" selection-end-column="3" />
+              <folding>
+                <element signature="e#6#146#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -133,12 +145,12 @@
         <option value="$PROJECT_DIR$/view/addSnows.php" />
         <option value="$PROJECT_DIR$/model/dbConnector.php" />
         <option value="$PROJECT_DIR$/view/register.php" />
-        <option value="$PROJECT_DIR$/model/userManagment.php" />
-        <option value="$PROJECT_DIR$/view/gabarit.php" />
         <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/view/gabarit.php" />
+        <option value="$PROJECT_DIR$/model/userManagment.php" />
+        <option value="$PROJECT_DIR$/controler/controler.php" />
         <option value="$PROJECT_DIR$/model/snowManagment.php" />
         <option value="$PROJECT_DIR$/view/snowsSeller.php" />
-        <option value="$PROJECT_DIR$/controler/controler.php" />
       </list>
     </option>
   </component>
@@ -149,8 +161,7 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="892" />
-    <option name="y" value="76" />
+    <option name="x" value="953" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
   </component>
@@ -197,7 +208,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../GLOBOSCOPE/globescope" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../ICT-120/Page_Web_ICT120" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -264,18 +275,19 @@
       <workItem from="1584619096711" duration="1291000" />
       <workItem from="1584626825796" duration="456000" />
       <workItem from="1584628346899" duration="2385000" />
-      <workItem from="1584697935528" duration="24251000" />
+      <workItem from="1584697935528" duration="24357000" />
+      <workItem from="1584782371096" duration="832000" />
+      <workItem from="1584958634472" duration="11459000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47291000" />
+    <option name="totallyTimeSpent" value="59688000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12260128" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.05383795" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -363,7 +375,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/view/snowsSeller.php</url>
-          <line>116</line>
+          <line>122</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
@@ -376,72 +388,96 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/view/addSnows.php" />
-    <entry file="file://$PROJECT_DIR$/view/snows.php">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/view/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="6" selection-end-column="3" />
+          <folding>
+            <element signature="e#6#135#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/view/register.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="5" lean-forward="true" selection-start-column="5" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="15" column="41" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/gabarit.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="119" selection-start-line="119" selection-end-line="119" />
+        <state relative-caret-position="17">
+          <caret line="1" column="3" lean-forward="true" selection-start-line="1" selection-start-column="3" selection-end-line="1" selection-end-column="3" />
+          <folding>
+            <element signature="e#6#138#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/model/dbConnector.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="15" column="21" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="21" />
+        <state relative-caret-position="17">
+          <caret line="1" column="3" lean-forward="true" selection-start-line="1" selection-start-column="3" selection-end-line="1" selection-end-column="3" />
+          <folding>
+            <element signature="e#6#146#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/snows.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/userManagment.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+          <folding>
+            <element signature="e#6#143#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="478">
-          <caret line="45" column="29" lean-forward="true" selection-start-line="45" selection-start-column="29" selection-end-line="45" selection-end-column="29" />
+        <state relative-caret-position="-340">
+          <caret line="1" selection-start-line="1" selection-end-line="6" selection-end-column="3" />
+          <folding>
+            <element signature="e#6#135#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/model/userManagment.php">
+    <entry file="file://$PROJECT_DIR$/view/gabarit.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="37" lean-forward="true" selection-start-line="12" selection-start-column="37" selection-end-line="12" selection-end-column="37" />
+        <state relative-caret-position="-1071">
+          <caret line="6" column="2" lean-forward="true" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="2" />
+          <folding>
+            <element signature="e#6#72#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/model/snowManagment.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="18" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="18" />
+        <state relative-caret-position="379">
+          <caret line="72" selection-start-line="72" selection-end-line="72" />
           <folding>
             <element signature="e#6#142#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/view/snowsSeller.php">
+    <entry file="file://$PROJECT_DIR$/controler/controler.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="518">
-          <caret line="82" selection-start-line="82" selection-end-line="82" />
+        <state relative-caret-position="158">
+          <caret line="100" column="17" selection-start-line="100" selection-start-column="4" selection-end-line="100" selection-end-column="17" />
+          <folding>
+            <element signature="e#6#248#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controler/controler.php">
+    <entry file="file://$PROJECT_DIR$/view/snowsSeller.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="129" column="134" selection-start-line="129" selection-start-column="134" selection-end-line="129" selection-end-column="134" />
+        <state relative-caret-position="155">
+          <caret line="209" column="70" lean-forward="true" selection-start-line="209" selection-start-column="70" selection-end-line="209" selection-end-column="70" />
+          <folding>
+            <element signature="e#6#140#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

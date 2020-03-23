@@ -1,7 +1,14 @@
 <?php
+/**
+ * 133-Start-master - userManagment.php
+ *
+ * Initial version by: Esteban.GIORGIS
+ * Initial version created on: 06.01.2020 09:21
+ */
 
 //soit on met require_once sur tous les fichier de managment ou alors te met juste un  require sur un seul
 require_once "dbConnector.php";
+
 
 //cette fonction regarde si le login inscrit est juste
 function checkLogin($post)

@@ -34,35 +34,34 @@ ob_start();
     }
 
 
-
     /* The popup form - hidden by default */
     .formulaireAjouter {
         animation: fadein 5s;
         display: none;
-        position:absolute;
+        position: absolute;
         width: 400px;
         height: auto;
-        left:0;
+        left: 0;
         right: 0;
         margin: auto;
-        padding-left:3px;
+        padding-left: 3px;
         border: solid 1px black;
-        background-color:#149bdf;
+        background-color: #149bdf;
     }
 
     /* The popup form - hidden by default */
     .formulaireModifier {
         animation: fadein 5s;
         display: none;
-        position:absolute;
+        position: absolute;
         width: 400px;
         height: auto;
-        left:0;
+        left: 0;
         right: 0;
         margin: auto;
-        padding-left:3px;
+        padding-left: 3px;
         border: solid 1px black;
-        background-color:#149bdf;
+        background-color: #149bdf;
     }
 
 </style>
@@ -80,11 +79,18 @@ ob_start();
     }
 
 
-
     function downPopUp() {
         document.getElementById("myPopupAjouter").style.display = "";
         document.getElementById("myPopupModifier").style.display = "";
     }
+
+    function listeDeroulante() {
+        idPrincipale=document.getElementById("1");
+        y=document.getElementById("codeMidif");
+
+        y.value=idPrincipale.name;//tous les value de la liste sera mis a la place de src de y
+    }
+
 
 </script>
 
@@ -127,7 +133,9 @@ ob_start();
                         </th>
 
 
-                        <th><a href="index.php?action=deleteSnow&id=<?= $result['id']; ?>&code=<?= $result['code']; ?>"><input type="button" value="Supprimer"></a></th>
+                        <th><a href="index.php?action=deleteSnow&id=<?= $result['id']; ?>&code=<?= $result['code']; ?>"><input
+                                        type="button" value="Supprimer"></a></th>
+
                     </tr>
                 <?php endforeach ?>
 
@@ -137,17 +145,6 @@ ob_start();
                 <div class="formulaireAjouter" id="myPopupAjouter">
 
                     <form class="form" method="POST" action="index.php?action=addSnows">
-
-
-                        <select>
-                            <option>
-                                        <?php
-                                            $idDesSnows=showSnows();
-                                        ?>
-
-                            </option>
-                        </select>
-
 
                         <label>Code</label>
                         <input type="text" name="codeAdd" required>
@@ -184,26 +181,30 @@ ob_start();
                 <!-- fin du boutton ajouter-->
 
 
-
-
-
-
                 <!-- bouton modifier-->
-                <button onclick="showPopUpModifier()">Midifier</button>
+                <button onclick="showPopUpModifier()" href="">Midifier</button>
                 <div class="formulaireModifier" id="myPopupModifier">
 
                     <form class="form" method="POST" action="index.php?action=addSnows">
 
+
                         <label>Id</label>
-                        <select>
-                            <option><? $tableauSnows[0]['id']; ?></option>
-                        </select>
+
+                        <SELECT onchange="listeDeroulante()">
+                            <?php for($i=1;$i<=$result['id'];$i++) : ?>
+                            <?php foreach ($tableauSnows as $result) : ?>
+                            <OPTION id="<?$i?>" name="<?$result['id']['code']?>" ><?= $result['id']; ?></OPTION>
+                            <?php endforeach ?>
+                            <?php endfor ?>
+                        </SELECT>
+
 
                         <label>Code</label>
-                        <input type="text" name="codeMidif" value="<?= $result['code']; ?>" required>
+                        <input type="text" id="codeMidif" required>
+
 
                         <label>Brand</label>
-                        <input type="text" name="brandMidif" value="sdf" required>
+                        <input type="text" name="brandMidif" required>
 
                         <label>Model</label>
                         <input type="text" name="modelMidif" required>
@@ -215,16 +216,18 @@ ob_start();
                         <input type="number" name="qtyAvailableMidif">
 
                         <label>Description</label>
-                        <input type="text" name="descriptionMidif">
+                        <input type="text" name="descriptionMidif" value=<?= @$tableauSnows[$index]['description']; ?>>
 
                         <label>DailyPrice</label>
-                        <input type="number" name="dailyPriceMidif" required>
+                        <input type="number" name="dailyPriceMidif"
+                               value=<?= @$tableauSnows[$index]['dailyPrice']; ?> required>
 
                         <label>Photo</label>
-                        <input type="file" name="photoMidif">
+                        <input type="file" name="photoMidif" value=<?= @$tableauSnows[$index]['photo']; ?>>
 
                         <label>Active (soit 1 soit 0)</label>
-                        <input type="number" name="activeMidif">
+                        <input type="number" name="activeMidif" value=<?= @$tableauSnows[$index]['active']; ?>>
+
 
                         <input type="submit" name="bouttonModdifer" value="Ajouter">
                         <button onclick="downPopUp()">Annuler</button>
@@ -235,6 +238,7 @@ ob_start();
 
 
             </table>
+
 
         </div>
     </header>

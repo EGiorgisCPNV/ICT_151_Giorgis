@@ -20,7 +20,7 @@ function showSnows()
 }
 
 
-//cette fonction va afficher un snow precis
+//cette fonction va afficher un snow precis avec ces détails
 function showSingleSnow($code)
 {
 
@@ -35,7 +35,7 @@ function showSingleSnow($code)
 
 
 
-//cette fonction va afficher un snow precis
+//cette fonction va va supprimmer un snow séléctionner dans la Base de donnée
 function deleteSnows($codeDelete)
 {
 
@@ -69,6 +69,7 @@ function verifiRentsDetails($id)
 
     return $request;
 }
+
 
 
 //cette fonction va ajouter un snow dans la BD
