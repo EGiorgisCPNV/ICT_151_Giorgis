@@ -72,24 +72,10 @@ ob_start();
         document.getElementById("myPopupAjouter").style.display = "block";
     }
 
-
-    function showPopUpModifier() {
-        document.getElementById("myPopupModifier").style.display = "block";
-
-    }
-
-
     function downPopUp() {
         document.getElementById("myPopupAjouter").style.display = "";
-        document.getElementById("myPopupModifier").style.display = "";
     }
 
-    function listeDeroulante() {
-        idPrincipale=document.getElementById("1");
-        y=document.getElementById("codeMidif");
-
-        y.value=idPrincipale.name;//tous les value de la liste sera mis a la place de src de y
-    }
 
 
 </script>
@@ -110,6 +96,7 @@ ob_start();
                     <th id="titre">Prix</th>
                     <th id="titre">Disponnibilité</th>
                     <th id="titre">Photo</th>
+                    <th id="titre">Modifier</th>
                     <th id="titre">Supprimer</th>
                 </tr>
                 <?php foreach ($tableauSnows as $result) : ?>
@@ -132,9 +119,13 @@ ob_start();
                                 <img src="<?= $result['photo']; ?>" alt="<?= $result['code']; ?>"></a>
                         </th>
 
+                        <th><a href="index.php?action=updateSnowPage&code=<?= $result['code']; ?>"><input type="button" value="Modifier"></a></th>
+
 
                         <th><a href="index.php?action=deleteSnow&id=<?= $result['id']; ?>&code=<?= $result['code']; ?>"><input
                                         type="button" value="Supprimer"></a></th>
+
+
 
                     </tr>
                 <?php endforeach ?>
@@ -159,7 +150,7 @@ ob_start();
                         <input type="number" name="snowLengthAdd" required>
 
                         <label>QtyAvailable (max 6) </label>
-                        <input type="number" name="qtyAvailableAdd">
+                        <input type="number" name="qtyAvailableAdd" >
 
                         <label>Description</label>
                         <input type="text" name="descriptionAdd">
@@ -179,66 +170,7 @@ ob_start();
 
                 </div>
                 <!-- fin du boutton ajouter-->
-
-
-                <!-- bouton modifier-->
-                <button onclick="showPopUpModifier()" href="">Midifier</button>
-                <div class="formulaireModifier" id="myPopupModifier">
-
-                    <form class="form" method="POST" action="index.php?action=addSnows">
-
-
-                        <label>Id</label>
-
-                        <SELECT onchange="listeDeroulante()">
-                            <?php for($i=1;$i<=$result['id'];$i++) : ?>
-                            <?php foreach ($tableauSnows as $result) : ?>
-                            <OPTION id="<?$i?>" name="<?$result['id']['code']?>" ><?= $result['id']; ?></OPTION>
-                            <?php endforeach ?>
-                            <?php endfor ?>
-                        </SELECT>
-
-
-                        <label>Code</label>
-                        <input type="text" id="codeMidif" required>
-
-
-                        <label>Brand</label>
-                        <input type="text" name="brandMidif" required>
-
-                        <label>Model</label>
-                        <input type="text" name="modelMidif" required>
-
-                        <label>SnowLength</label>
-                        <input type="number" name="snowLengthMidif" required>
-
-                        <label>QtyAvailable (max 6) </label>
-                        <input type="number" name="qtyAvailableMidif">
-
-                        <label>Description</label>
-                        <input type="text" name="descriptionMidif" value=<?= @$tableauSnows[$index]['description']; ?>>
-
-                        <label>DailyPrice</label>
-                        <input type="number" name="dailyPriceMidif"
-                               value=<?= @$tableauSnows[$index]['dailyPrice']; ?> required>
-
-                        <label>Photo</label>
-                        <input type="file" name="photoMidif" value=<?= @$tableauSnows[$index]['photo']; ?>>
-
-                        <label>Active (soit 1 soit 0)</label>
-                        <input type="number" name="activeMidif" value=<?= @$tableauSnows[$index]['active']; ?>>
-
-
-                        <input type="submit" name="bouttonModdifer" value="Ajouter">
-                        <button onclick="downPopUp()">Annuler</button>
-                    </form>
-
-                </div>
-                <!-- fin du boutton modifier-->
-
-
             </table>
-
 
         </div>
     </header>

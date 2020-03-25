@@ -20,8 +20,8 @@ function showSnows()
 }
 
 
-//cette fonction va afficher un snow precis avec ces détails
-function showSingleSnow($code)
+//cette fonction va afficher un snow precis avec ces détails la différence entre la fonction codeVerification() c'est dans cette fonction il affiche tout les par rapport au code contrairement a codeVerification() qui affiche que les codes
+function detailSingleSnow($code)
 {
 
     $requete = "SELECT * FROM snows where code ='$code';";
@@ -47,8 +47,8 @@ function deleteSnows($codeDelete)
 }
 
 
-//cette fonction juste chercher tout les code de chaque article
-function codeVerification($code)
+//cette fonction juste chercher tout les code de chaque article la différence entre la fonction codeVerification() c'est dans cette fonction il affiche tout les par rapport au code contrairement a codeVerification() qui affiche que les codes
+function showSingleCode($code)
 {
 
     $requete = "SELECT code FROM snows WHERE code='$code';";
@@ -76,6 +76,16 @@ function verifiRentsDetails($id)
 function addSnow($code,$brand,$model,$snowLength,$qtyAvailable,$description,$dailyPrice,$photo,$active){
 
     $requete ="INSERT INTO snows (code, brand, model, snowLength,qtyAvailable,description,dailyPrice,photo,active) VALUES ('$code','$brand','$model','$snowLength','$qtyAvailable','$description','$dailyPrice','$photo','$active');";
+
+    $request = executeQuery($requete);
+    return $request;
+}
+
+
+//cette fonction va ajouter un snow dans la BD
+function updateSnowBD($code,$brand,$model,$snowLength,$qtyAvailable,$description,$dailyPrice,$photo,$active,$codePrecedent){
+
+    $requete ="UPDATE snows SET code = '$code',brand = '$brand',model = '$model',snowLength = '$snowLength',qtyAvailable = '$qtyAvailable',description = '$description',dailyPrice = '$dailyPrice',photo = '$photo',active = '$active' WHERE code = '$codePrecedent';";
 
     $request = executeQuery($requete);
     return $request;

@@ -88,7 +88,7 @@ function singleSnow($code)
 {
     $_GET['action'] = "singleSnow";
 
-    $tableSingleSnow = showSingleSnow($code);
+    $tableSingleSnow = detailSingleSnow($code);
 
     require "view/singleSnow.php";
 }
@@ -118,7 +118,7 @@ function addSnows($postFormulaire)
     $Photo = $postFormulaire["photoAdd"];
     $Active = $postFormulaire["activeAdd"];
 
-    $codeVerifier = codeVerification($postFormulaire['codeAdd']);//A SAVOIR QUE TU DEVRA SPESIFIER QUEL CHAMPS DE LA BD ET QUEL LIGNE (TJR METTRE [0]) MAIS AVEC $codeVerifier (exemple : $codeVerifier[0]['code'], etc...)
+    $codeVerifier = showSingleCode($postFormulaire['codeAdd']);//A SAVOIR QUE TU DEVRA SPESIFIER QUEL CHAMPS DE LA BD ET QUEL LIGNE (TJR METTRE [0]) MAIS AVEC $codeVerifier (exemple : $codeVerifier[0]['code'], etc...)
 
     if (isset($Code)) {
 
@@ -126,7 +126,7 @@ function addSnows($postFormulaire)
             addSnow($Code, $Brand, $Model, $SnowLength ,$QtyAvailable,$Description,$DailyPrice,$Photo,$Active);
             echo "Snow ajouter";
         } else {
-            echo "Vous avez ajouter un snow avec un code déjà existant";
+            echo "Vous avez ajouter un snow avec un code déjà existant, ajout annulée";
         }
 
     } else {
@@ -138,7 +138,7 @@ function addSnows($postFormulaire)
 }
 
 
-//cette fonction va rediriger vers la fonction qui supprimera un snow seulement si le snow n'apas encore été supprimmer
+//cette fonction va rediriger vers la fonction qui supprimera un snow seulement si le snow n'a pas encore été supprimmer
 function deleteSnow($Delete)
 {
     $_GET['action'] = "deleteSnow";
@@ -162,6 +162,60 @@ function deleteSnow($Delete)
 
     } else {
         echo "Ce snow a deja été supprimer";
+    }
+
+    snowsSeller();
+
+}
+
+
+//cette fonction va rediriger vers la page updateSnowPage.php
+function updateSnowPage($code)
+{
+
+    $_GET['action'] = "updateSnowPage";
+
+    //$updateSingleSnow contiendra toutes les infos d'un snow par rapport a son code
+    $updateSingleSnow = detailSingleSnow($code);
+
+    //$tableauAncienCode contiendra juste un code sous forme de tableau (un foreache sera obligatoir pour l'utiliser)
+    $tableauAncienCode=showSingleCode($code);
+
+    require "view/updateSnowPage.php";
+
+}
+
+
+
+//cette fonction va rediriger vers la fonction qui modifira  un snow seulement si le snow n'existe pas déja
+function updateSnow($detailSnow,$code)
+{
+
+    $_GET['action'] = "updateSnow";
+
+    $Code = $detailSnow["codeUpdate"];
+    $Brand = $detailSnow["brandUpdate"];
+    $Model = $detailSnow["modelUpdate"];
+    $SnowLength = $detailSnow["snowLengthUpdate"];
+    $QtyAvailable = $detailSnow["qtyAvailableUpdate"];
+    $Description = $detailSnow["descriptionUpdate"];
+    $DailyPrice = $detailSnow["dailyPriceUpdate"];
+    $Photo = $detailSnow["photoUpdate"];
+    $Active = $detailSnow["activeUpdate"];
+
+    $codeVerifier = showSingleCode($detailSnow['codeUpdate']);//A SAVOIR QUE TU DEVRA SPESIFIER QUEL CHAMPS DE LA BD ET QUEL LIGNE (TJR METTRE [0]) MAIS AVEC $codeVerifier (exemple : $codeVerifier[0]['code'], etc...)
+
+    if (isset($Code)) {
+
+        if ($Code != @$codeVerifier[0]['code']) {
+            updateSnowBD($Code, $Brand, $Model, $SnowLength ,$QtyAvailable,$Description,$DailyPrice,$Photo,$Active,$code);
+            echo "Snow modifier";
+        } else {
+            echo "Ce code est deja pris, veillez en choisir un autre";
+        }
+
+    } else {
+        echo "erreur dans la modification, vellier refaire votre manipulation";
     }
 
     snowsSeller();

@@ -42,6 +42,14 @@ if(isset ($_GET['action'])){
             deleteSnow($_GET);
             break;
 
+        case 'updateSnowPage':
+            updateSnowPage($_GET['code']);
+            break;
+
+        case 'updateSnow':
+            updateSnow($_POST,$_GET['code']);
+            break;
+
         case 'addSnows':
             addSnows($_POST);
             break;
