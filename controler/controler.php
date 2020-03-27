@@ -188,7 +188,7 @@ function updateSnowPage($code)
 
 
 //cette fonction va rediriger vers la fonction qui modifira  un snow seulement si le snow n'existe pas déja
-function updateSnow($detailSnow,$code)
+function updateSnow($detailSnow,$codePrecedent)
 {
 
     $_GET['action'] = "updateSnow";
@@ -207,8 +207,8 @@ function updateSnow($detailSnow,$code)
 
     if (isset($Code)) {
 
-        if ($Code != @$codeVerifier[0]['code']) {
-            updateSnowBD($Code, $Brand, $Model, $SnowLength ,$QtyAvailable,$Description,$DailyPrice,$Photo,$Active,$code);
+        if ($Code != @$codeVerifier[0]['code'] || $Code==$codePrecedent) {
+            updateSnowBD($Code, $Brand, $Model, $SnowLength ,$QtyAvailable,$Description,$DailyPrice,$Photo,$Active,$codePrecedent);
             echo "Snow modifier";
         } else {
             echo "Ce code est deja pris, veillez en choisir un autre";
