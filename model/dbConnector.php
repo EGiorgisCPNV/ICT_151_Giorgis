@@ -28,7 +28,7 @@ function executeQuery($query)
 }
 
 
-/*
+
 //Source : http://php.net/manual/en/pdo.prepare.php
 function insertQuery($query)
 {
@@ -43,7 +43,7 @@ function insertQuery($query)
     $dbConnexion = null;//close database connexion
     return $queryResult;
 }
-*/
+
 
 
 //Source : http://php.net/manual/en/pdo.construct.php

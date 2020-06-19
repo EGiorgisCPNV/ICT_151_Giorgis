@@ -7,8 +7,28 @@
 
 session_start();//ouvre la session
 
+
+
+
+
+
+
 require_once "model/userManagment.php";
 require_once "model/snowManagment.php";
+
+
+
+
+
+
+
+
+
+//  |||||||||||||||    PAS DE $_GET['...']='...'     ||||||||||||||||  \\
+
+
+
+
 
 
 /**
@@ -17,7 +37,6 @@ require_once "model/snowManagment.php";
  */
 function home()
 {
-    $_GET['action'] = "home";
     require "view/home.php";
 }
 
@@ -27,8 +46,6 @@ function home()
  */
 function register($postRegister)
 {
-    $_GET['action'] = "register";
-
 
     if (isset ($postRegister['usernameRegister']) || isset ($postRegister['passwordRegister'])) {
 
@@ -50,15 +67,14 @@ function register($postRegister)
  * Function to redirect the user to the login page
  *  (epending the action received by the index)
  */
-function login($postLoin)
+function login($postLogin)
 {
-    $_GET['action'] = "login";
 
 
-    if (isset ($postLoin['username']) && isset ($postLoin['password'])) {
+    if (isset ($postLogin['username']) && isset ($postLogin['password'])) {
 
         //cette condition va checker ce que l'utilisateur va rentrer dans la page login est rediriger sur la page home si ce qu'il a rentrer correspond a la la fonction checkLogin dans le model.php sinon sur la page login sa sa ne corespond pas
-        if (checkLogin($postLoin)) {
+        if (checkLogin($postLogin)) {
             home();
         } else {
             echo "Soit votre email ou soit votre mot de passe est incorrect";
@@ -76,7 +92,7 @@ function login($postLoin)
 //cette fonction va rediriger vers la page qui affiche tous les snows pour la vue cliente
 function snows()
 {
-    $_GET['action'] = "snows";
+
 
     $tableauSnows = showSnows();
     require "view/snows.php";
@@ -86,7 +102,7 @@ function snows()
 //cette fonction va rediriger vers la page qui affiche les détails d'un snow
 function singleSnow($code)
 {
-    $_GET['action'] = "singleSnow";
+
 
     $tableSingleSnow = detailSingleSnow($code);
 
@@ -97,7 +113,6 @@ function singleSnow($code)
 //cette fonction va rediriger vers la page qui affiche les snows pour le vendeur
 function snowsSeller()
 {
-    $_GET['action'] = "snowsSeller";
     $tableauSnows = showSnows();
     require "view/snowsSeller.php";
 }
@@ -106,7 +121,6 @@ function snowsSeller()
 //cette fonction va rediriger vers la fonction qui ajoutera un snow
 function addSnows($postFormulaire)
 {
-    $_GET['action'] = "addSnows";
 
     $Code = $postFormulaire["codeAdd"];
     $Brand = $postFormulaire["brandAdd"];
@@ -141,7 +155,6 @@ function addSnows($postFormulaire)
 //cette fonction va rediriger vers la fonction qui supprimera un snow seulement si le snow n'a pas encore été supprimmer
 function deleteSnow($Delete)
 {
-    $_GET['action'] = "deleteSnow";
 
 
     $idVerifier = verifiRentsDetails($Delete['id']);//A SAVOIR QUE TU DEVRA SPESIFIER QUEL CHAMPS DE LA BD ET QUEL LIGNE (TJR METTRE [0]) MAIS AVEC $id (exemple : $id[0]['idSnow'], etc...)
@@ -173,7 +186,6 @@ function deleteSnow($Delete)
 function updateSnowPage($code)
 {
 
-    $_GET['action'] = "updateSnowPage";
 
     //$updateSingleSnow contiendra toutes les infos d'un snow par rapport a son code
     $updateSingleSnow = detailSingleSnow($code);
@@ -191,7 +203,6 @@ function updateSnowPage($code)
 function updateSnow($detailSnow,$codePrecedent)
 {
 
-    $_GET['action'] = "updateSnow";
 
     $Code = $detailSnow["codeUpdate"];
     $Brand = $detailSnow["brandUpdate"];

@@ -13,7 +13,7 @@ require_once "dbConnector.php";
 function showSnows()
 {
 
-    $requete = "SELECT * FROM snows;";
+    $requete = "SELECT id, code, brand, model, snowLength,qtyAvailable,description,dailyPrice,photo,active FROM snows;";
     $request = executeQuery($requete);
 
     return $request;
@@ -24,7 +24,7 @@ function showSnows()
 function detailSingleSnow($code)
 {
 
-    $requete = "SELECT * FROM snows where code ='$code';";
+    $requete = "SELECT id, code, brand, model, snowLength,qtyAvailable,description,dailyPrice,photo,active FROM snows where code ='$code';";
     $request = executeQuery($requete);
 
 
@@ -40,7 +40,7 @@ function deleteSnows($codeDelete)
 {
 
     $requete ="DELETE FROM snows WHERE code = '$codeDelete' ;";
-    $request = executeQuery($requete);
+    $request = insertQuery($requete);
 
 
     return $request;
@@ -77,7 +77,7 @@ function addSnow($code,$brand,$model,$snowLength,$qtyAvailable,$description,$dai
 
     $requete ="INSERT INTO snows (code, brand, model, snowLength,qtyAvailable,description,dailyPrice,photo,active) VALUES ('$code','$brand','$model','$snowLength','$qtyAvailable','$description','$dailyPrice','$photo','$active');";
 
-    $request = executeQuery($requete);
+    $request = insertQuery($requete);
     return $request;
 }
 
@@ -87,6 +87,6 @@ function updateSnowBD($code,$brand,$model,$snowLength,$qtyAvailable,$description
 
     $requete ="UPDATE snows SET code = '$code',brand = '$brand',model = '$model',snowLength = '$snowLength',qtyAvailable = '$qtyAvailable',description = '$description',dailyPrice = '$dailyPrice',photo = '$photo',active = '$active' WHERE code = '$codePrecedent';";
 
-    $request = executeQuery($requete);
+    $request = insertQuery($requete);
     return $request;
 }

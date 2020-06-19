@@ -15,16 +15,16 @@ function checkLogin($post)
 {
 
     //cette requete sert a vérifier si ce qu'il a entrer comme username ou pseudo corresond a quelque chose dans la BD car on ne peut plus vérifier le password vu qu'il est hasher
-    $requete = "SELECT userEmailAddress, userHashPsw, userType FROM users where userEmailAddress = '" . $post['username']. "';";
+    $requete = "SELECT userEmailAddress, userPsw, admin FROM users where userEmailAddress = '" . $post['username']. "';";
 
     $result = executeQuery($requete);
 
 
     if ($result) {
-        $passwordHash = $result[0]["userHashPsw"];
+        $passwordHash = $result[0]["userPsw"];
         if (password_verify($post['password'], $passwordHash)) {
             $_SESSION['MotCle'] = $post['username'];//SESSION c'est comme un $_GET sauf qu'un $_GET c'est des chose de l'url contrairement a SESSION ou tu peut le faire égale a n'importequoi (MotCle c'est juste l'indentifiant de cette session)
-            $_SESSION['MotCleAdmin'] = $result[0]["userType"];//SESSION c'est comme un $_GET sauf qu'un $_GET c'est des chose de l'url contrairement a SESSION ou tu peut le faire égale a n'importequoi(MotCleAdmin c'est juste l'indentifiant de cette session)
+            $_SESSION['MotCleAdmin'] = $result[0]["admin"];//SESSION c'est comme un $_GET sauf qu'un $_GET c'est des chose de l'url contrairement a SESSION ou tu peut le faire égale a n'importequoi(MotCleAdmin c'est juste l'indentifiant de cette session)
             return true;
         } else {
             return false;
@@ -54,10 +54,10 @@ function creatUser($post)
 
 
             $passwordHash = password_hash($post['passwordRegister'], PASSWORD_DEFAULT);
-            $requeteCreate = "INSERT INTO users (userEmailAddress, userHashPsw) VALUES ('" . $post['usernameRegister']  . "','" . $passwordHash . "');";
+            $requeteCreate = "INSERT INTO users (userEmailAddress, userPsw) VALUES ('" . $post['usernameRegister']  . "','" . $passwordHash . "');";
 
 
-            executeQuery($requeteCreate);
+            insertQuery($requeteCreate);
             return true;
         } else {
             echo "les deux mot de passe ne coresponde pas";

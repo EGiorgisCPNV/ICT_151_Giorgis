@@ -76,13 +76,12 @@
                         <div class="nav-collapse collapse">
                             <ul class="nav nav-pills ddmenu">
                                 <!-- boutton accuiel-->
-                                <li<?php if (($_GET['action'] == "home") || (!isset($_GET['action'])))  : //les double points sont obligatoire sa remplace un "{" dans les fichier html?> class="active"<?php endif ?>>
+                                <li<?php if  (isset($_GET['action']) && ($_GET['action'] == "home"))  : //les double points sont obligatoire sa remplace un "{" dans les fichier html?> class="active"<?php endif ?>>
                                     <a href="index.php?action=home">Home</a></li>
 
-
-                                <!-- boutton Register-->
-                                <li<?php if (($_GET['action'] == "register"))  : ?> class="active" <?php endif ?>>
-                                    <a href="index.php?action=register">Register</a></li>
+                                <!-- boutton snows sans admin-->
+                                <li<?php if (isset ($_GET['action']) && ($_GET['action'] == "snows")) : ?> class="active"<?php endif ?> >
+                                    <a href="index.php?action=snows">Snows</a></li>
 
 
                                 <!----------------------------------------------------------------------------------------------------------------------------------------------------->
@@ -90,46 +89,59 @@
                                 <?php if (isset($_SESSION['MotCle'])) : //les double points sont obligatoire sa remplace un "{" dans les fichier html?>
 
 
-                                    <!-- cette condition sert a savoir si la personne est entré avec un compte admin ou non-->
-                                    <?php if (isset($_SESSION['MotCleAdmin']) && $_SESSION['MotCleAdmin'] == 0) : ?>
-
-                                        <!-- boutton snows vue client-->
-                                        <li<?php if ($_GET['action'] == "snows") : ?> class="active"<?php endif ?> >
-                                            <a href="index.php?action=snows">Snows</a></li>
 
 
-                                        <!-- boutton snows vue vendeur-->
-                                        <li<?php if ($_GET['action'] == "snowsSeller") : ?> class="active"<?php endif ?>>
-                                            <a href="index.php?action=snowsSeller">SnowsAdmin</a></li>
+                                            <!-- cette condition sert a savoir si la personne est entré avec un compte admin ou non-->
+                                            <?php if (isset($_SESSION['MotCleAdmin']) && $_SESSION['MotCleAdmin'] == 1) : ?>
 
 
-                                    <?php elseif (isset($_SESSION['MotCleAdmin']) && $_SESSION['MotCleAdmin'] == 1): ?>
+                                                        <!-- boutton snows vue vendeur-->
+                                                        <li<?php if (isset ($_GET['action']) && ($_GET['action'] == "snowsSeller")) : ?> class="active"<?php endif ?>>
+                                                            <a href="index.php?action=snowsSeller">SnowsAdmin</a></li>
 
-                                        <!-- boutton snows sans admin-->
-                                        <li<?php if (($_GET['action'] == "snows"))  : ?> class="active" <?php endif ?>>
-                                            <a href="index.php?action=snows">Snows</a></li>
-
-                                    <?php endif ?>
+                                                        <!-- boutton Register-->
+                                                        <li<?php if (isset ($_GET['action']) && ($_GET['action'] == "register"))  : ?> class="active" <?php endif ?>>
+                                                            <a href="index.php?action=register">Ajouter un compte rapidement</a></li>
 
 
+
+                                            <?php elseif (isset($_SESSION['MotCleAdmin']) && $_SESSION['MotCleAdmin'] == 0): ?>
+
+
+
+                                                        <!-- boutton snows sans admin-->
+                                                        <li<?php if (isset ($_GET['action']) && ($_GET['action'] == "snows"))  : ?> class="active" <?php endif ?>>
+                                                            <a href="index.php?action=snows">Snows</a></li>
+
+
+
+                                            <?php endif ?>
+
+
+
+                                    <!-- le bouton logout s'affichera de toute facon peut importe si c'est un compte admin ou non -->
                                     <li><a href="index.php?action=logout">Logout</a></li>
                                     <label>Vous êtes connecté en tant qu'<?php echo $_SESSION['MotCle'] ?></label>
 
+
+
+
                                 <?php else : ?>
 
-                                    <!--    SI IL EST PAS CONNECTER -->
-                                    <!-- boutton login-->
-                                    <li<?php if (($_GET['action'] == "login"))  : ?> class="active"<?php endif ?>>
-                                        <!----------------------------------------------------------------------------------------------------------------------------------------------------->
 
 
-                                        <!-- boutton snows sans admin-->
-                                    <li<?php if ($_GET['action'] == "snows") : ?> class="active"<?php endif ?> >
-                                        <a href="index.php?action=snows">Snows</a></li>
+                                            <!--    SI IL EST PAS CONNECTER -->
+                                            <!-- boutton login-->
+                                            <li<?php if (isset ($_GET['action']) && ($_GET['action'] == "login")) : ?> class="active"<?php endif ?>>
+                                                <a href="index.php?action=login">Login</a></li>
 
 
-                                    <li<?php if ($_GET['action'] == "login") : ?> class="active"<?php endif ?>>
-                                        <a href="index.php?action=login">Login</a></li>
+                                            <!-- boutton Register-->
+                                            <li<?php if (isset ($_GET['action']) && ($_GET['action'] == "register"))  : ?> class="active" <?php endif ?>>
+                                                <a href="index.php?action=register">Register</a></li>
+
+
+
 
                                 <?php endif ?>
 
