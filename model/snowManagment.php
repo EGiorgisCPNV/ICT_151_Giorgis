@@ -32,18 +32,13 @@ function detailSingleSnow($code)
 }
 
 
-
-
-
 //cette fonction va va supprimmer un snow séléctionner dans la Base de donnée
 function deleteSnows($codeDelete)
 {
 
-    $requete ="DELETE FROM snows WHERE code = '$codeDelete' ;";
-    $request = insertQuery($requete);
+    $requete = "DELETE FROM snows WHERE code = '$codeDelete' ;";
+    insertQuery($requete);
 
-
-    return $request;
 }
 
 
@@ -63,7 +58,7 @@ function showSingleCode($code)
 function verifiRentsDetails($id)
 {
 
-    $requete ="SELECT idSnow FROM rentsdetails where idSnow='$id';";
+    $requete = "SELECT idSnow FROM rentsdetails where idSnow='$id';";
     $request = executeQuery($requete);
 
 
@@ -71,22 +66,19 @@ function verifiRentsDetails($id)
 }
 
 
-
 //cette fonction va ajouter un snow dans la BD
-function addSnow($code,$brand,$model,$snowLength,$qtyAvailable,$description,$dailyPrice,$photo,$active){
+function addSnow($code, $brand, $model, $snowLength, $qtyAvailable, $description, $dailyPrice, $photo, $active)
+{
 
-    $requete ="INSERT INTO snows (code, brand, model, snowLength,qtyAvailable,description,dailyPrice,photo,active) VALUES ('$code','$brand','$model','$snowLength','$qtyAvailable','$description','$dailyPrice','$photo','$active');";
-
-    $request = insertQuery($requete);
-    return $request;
+    $requete = "INSERT INTO snows (code, brand, model, snowLength,qtyAvailable,description,dailyPrice,photo,active) VALUES ('$code','$brand','$model','$snowLength','$qtyAvailable','$description','$dailyPrice','$photo','$active');";
+    insertQuery($requete);
 }
 
 
 //cette fonction va ajouter un snow dans la BD
-function updateSnowBD($code,$brand,$model,$snowLength,$qtyAvailable,$description,$dailyPrice,$photo,$active,$codePrecedent){
+function updateSnowBD($code, $brand, $model, $snowLength, $qtyAvailable, $description, $dailyPrice, $photo, $active, $codePrecedent)
+{
 
-    $requete ="UPDATE snows SET code = '$code',brand = '$brand',model = '$model',snowLength = '$snowLength',qtyAvailable = '$qtyAvailable',description = '$description',dailyPrice = '$dailyPrice',photo = '$photo',active = '$active' WHERE code = '$codePrecedent';";
-
-    $request = insertQuery($requete);
-    return $request;
+    $requete = "UPDATE snows SET code = '$code',brand = '$brand',model = '$model',snowLength = '$snowLength',qtyAvailable = '$qtyAvailable',description = '$description',dailyPrice = '$dailyPrice',photo = '$photo',active = '$active' WHERE code = '$codePrecedent';";
+    insertQuery($requete);
 }

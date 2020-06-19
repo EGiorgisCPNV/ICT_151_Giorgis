@@ -40,6 +40,7 @@ function home()
     require "view/home.php";
 }
 
+// <editor-fold desc="snows">
 /**
  * Function to redirect the user to the register page
  *  (epending the action received by the index)
@@ -232,7 +233,7 @@ function updateSnow($detailSnow,$codePrecedent)
     snowsSeller();
 
 }
-
+// </editor-fold>
 
 //cette fonction va supprimer ce qu'il avait dans la $_SESSION puis appeler la fonction home()
 function logout()

@@ -4,10 +4,7 @@
     <list default="true" id="f6b2ab00-b284-48bf-95b3-e5b3b6546a1d" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controler/controler.php" beforeDir="false" afterPath="$PROJECT_DIR$/controler/controler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/dbConnector.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/dbConnector.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/snowManagment.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/snowManagment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/userManagment.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/userManagment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/gabarit.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/gabarit.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -123,7 +120,9 @@
       <workItem from="1585304469458" duration="345000" />
       <workItem from="1585312599550" duration="886000" />
       <workItem from="1585313498895" duration="8000" />
-      <workItem from="1592548868718" duration="2269000" />
+      <workItem from="1592548868718" duration="2310000" />
+      <workItem from="1592558145913" duration="61000" />
+      <workItem from="1592559443096" duration="88000" />
     </task>
     <servers />
   </component>
